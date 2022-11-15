@@ -2,7 +2,7 @@ package com.arakamitech.services;
 
 import com.arakamitech.entities.UsuariosEntity;
 
-public interface ICRUDService {
+public interface IUsuariosService {
 
 	UsuariosEntity getUsuario(String identificacion);
 

@@ -1,5 +1,7 @@
 package com.arakamitech.dtos;
 
+import org.springframework.http.HttpStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,5 +13,7 @@ public class ResponseDto {
 
 	private UsuariosDto usuario;
 	private String mensaje;
+	private Integer code;
+	private HttpStatus status;
 	
 }

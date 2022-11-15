@@ -14,12 +14,12 @@ import com.arakamitech.repositories.IRepositoryUsuarios;
 
 @Service
 @Transactional
-public class CRUDServiceImpl implements ICRUDService {
+public class UsuariosServiceImpl implements IUsuariosService {
 
 	private final IRepositoryUsuarios iRepositoryUsuarios;
 
 	@Autowired
-	public CRUDServiceImpl(IRepositoryUsuarios iRepositoryUsuarios) {
+	public UsuariosServiceImpl(IRepositoryUsuarios iRepositoryUsuarios) {
 		this.iRepositoryUsuarios = iRepositoryUsuarios;
 	}
 

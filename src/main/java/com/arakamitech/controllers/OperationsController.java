@@ -16,7 +16,7 @@ import com.arakamitech.business.IOperationsBusiness;
 import com.arakamitech.dtos.ResponseDto;
 
 @RestController
-@RequestMapping("/operations")
+@RequestMapping("usuarios/operations")
 public class OperationsController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(OperationsController.class);

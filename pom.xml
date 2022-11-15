@@ -8,10 +8,10 @@
 		<relativePath />
 	</parent>
 	<groupId>com.arakamitech</groupId>
-	<artifactId>CRUD</artifactId>
+	<artifactId>usuarios</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CRUD</name>
-	<description>CRUD</description>
+	<name>usuarios</name>
+	<description>usuarios</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

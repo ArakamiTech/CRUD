@@ -1,5 +1,6 @@
 package com.arakamitech.exceptions;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,7 +12,7 @@ public class NotFoundExceptionHandler {
 
 	@ExceptionHandler
 	public ResponseEntity<ResponseDto> exceptionHandler(NotFoundException ex) {
-		return ResponseEntity.ok(new ResponseDto(null, ex.getMessage()));
+		return ResponseEntity.ok(new ResponseDto(null, ex.getMessage(), 200, HttpStatus.OK));
 	}
 
 }

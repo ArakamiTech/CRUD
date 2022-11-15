@@ -1,4 +1,4 @@
-<h3>CRUD</h3>
+<h3>Usuarios</h3>
 Este proyecto realiza operaciones CRUD y de consultas generales con diferentes formas de generarlas (Spring boot, JPQL, NativeQuery)
 
 <h3>Indicaciones</h3>

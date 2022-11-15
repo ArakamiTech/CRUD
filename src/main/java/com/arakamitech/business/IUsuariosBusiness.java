@@ -3,7 +3,7 @@ package com.arakamitech.business;
 import com.arakamitech.dtos.ResponseDto;
 import com.arakamitech.dtos.UsuariosDto;
 
-public interface ICRUDBusiness {
+public interface IUsuariosBusiness {
 	
 	ResponseDto getUsuario(String identificacion);
 

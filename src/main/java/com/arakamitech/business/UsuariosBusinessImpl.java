@@ -8,44 +8,44 @@ import com.arakamitech.dtos.ResponseDto;
 import com.arakamitech.dtos.UsuariosDto;
 import com.arakamitech.entities.UsuariosEntity;
 import com.arakamitech.exceptions.NotFoundException;
-import com.arakamitech.services.ICRUDService;
+import com.arakamitech.services.IUsuariosService;
 
 @Service
-public class CRUDBusinessImpl implements ICRUDBusiness {
+public class UsuariosBusinessImpl implements IUsuariosBusiness {
 
-	private final ICRUDService iCRUDService;
+	private final IUsuariosService iUsuariosService;
 	private final ModelMapper mapper;
 
 	@Autowired
-	public CRUDBusinessImpl(ICRUDService iCRUDService, ModelMapper mapper) {
-		this.iCRUDService = iCRUDService;
+	public UsuariosBusinessImpl(IUsuariosService iUsuariosService, ModelMapper mapper) {
+		this.iUsuariosService = iUsuariosService;
 		this.mapper = mapper;
 	}
 
 	@Override
 	public ResponseDto getUsuario(String identificacion) {
-		UsuariosEntity usuario = iCRUDService.getUsuario(identificacion);
+		UsuariosEntity usuario = iUsuariosService.getUsuario(identificacion);
 		return buildResponseDto(usuario);
 	}
 
 	@Override
 	public ResponseDto createUsuario(UsuariosDto usuario) {
 		UsuariosEntity usuarioEntity = mapper.map(usuario, UsuariosEntity.class);
-		usuarioEntity = iCRUDService.createUsuario(usuarioEntity);
+		usuarioEntity = iUsuariosService.createUsuario(usuarioEntity);
 		return buildResponseDto(usuarioEntity);
 	}
 
 	@Override
 	public ResponseDto updateUsuario(UsuariosDto usuario) {
-		UsuariosEntity usuarioEntity = iCRUDService.getUsuario(usuario.getIdentificacionUsuario());
+		UsuariosEntity usuarioEntity = iUsuariosService.getUsuario(usuario.getIdentificacionUsuario());
 		buildUsuarioEntity(usuarioEntity, usuario);
-		usuarioEntity = iCRUDService.updateUsuario(usuarioEntity);
+		usuarioEntity = iUsuariosService.updateUsuario(usuarioEntity);
 		return buildResponseDto(usuarioEntity);
 	}
 
 	@Override
 	public ResponseDto delete(String identificacion) {
-		iCRUDService.deleteUsuario(identificacion);
+		iUsuariosService.deleteUsuario(identificacion);
 		return buildResponseDto();
 	}
 
