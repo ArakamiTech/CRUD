@@ -21,13 +21,14 @@ public class UsuariosEntity {
 	}
 
 	public UsuariosEntity(Long id, String nombreUsuario, String identificacionUsuario, String telefonoUsuario,
-			String correoUsuario) {
+			String correoUsuario, String password) {
 		super();
 		this.id = id;
 		this.nombreUsuario = nombreUsuario;
 		this.identificacionUsuario = identificacionUsuario;
 		this.telefonoUsuario = telefonoUsuario;
 		this.correoUsuario = correoUsuario;
+		this.password = password;
 	}
 
 	@Id
@@ -42,5 +43,7 @@ public class UsuariosEntity {
 	private String telefonoUsuario;
 	@Column(name = "correo_usuarios")
 	private String correoUsuario;
+	@Column(name = "password")
+	private String password;
 
 }

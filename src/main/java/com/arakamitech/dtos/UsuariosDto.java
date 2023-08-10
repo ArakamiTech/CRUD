@@ -10,5 +10,6 @@ public class UsuariosDto {
 	private String identificacionUsuario;
 	private String telefonoUsuario;
 	private String correoUsuario;
+	private String password;
 
 }
