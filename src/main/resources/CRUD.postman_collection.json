@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "2e7d1917-b667-4731-a8b8-7a6a8c55bff5",
+		"name": "CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4021183"
+	},
+	"item": [
+		{
+			"name": "login (TOKEN)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/login?user=1031139554&password=contrasena1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "1031139554"
+						},
+						{
+							"key": "password",
+							"value": "contrasena1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreUsuario\": \"MiNombre\",\r\n    \"identificacionUsuario\": \"0975427885\",\r\n    \"telefonoUsuario\": \"1547689523\",\r\n    \"correoUsuario\": \"correo1@hotmail.com\",\r\n    \"password\": \"contrasena1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByCorreoAndIdentificacion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiMTAzMTEzOTU1NCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2OTI3NjYwNjcsImV4cCI6MTY5Mjc2NjY2N30.Ti50YkeK7WDD_TK7nbchXFHivasWUSahLNWTdCFzbbGLSAJ5DHchAySCg0bhevbS",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "operacion",
+						"value": "3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/operations/findByCorreoAndIdentificacion?correo=correo1@hotmail.com&identificacion=1759874226",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"operations",
+						"findByCorreoAndIdentificacion"
+					],
+					"query": [
+						{
+							"key": "correo",
+							"value": "correo1@hotmail.com"
+						},
+						{
+							"key": "identificacion",
+							"value": "1759874226"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByCorreoUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiMTAzMTEzOTU1NCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2OTI3NjYwNjcsImV4cCI6MTY5Mjc2NjY2N30.Ti50YkeK7WDD_TK7nbchXFHivasWUSahLNWTdCFzbbGLSAJ5DHchAySCg0bhevbS",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/operations/findByCorreoUsuario?correo=correo1@hotmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"operations",
+						"findByCorreoUsuario"
+					],
+					"query": [
+						{
+							"key": "correo",
+							"value": "correo1@hotmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByTelefonoUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiMTAzMTEzOTU1NCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2OTI3NjYwNjcsImV4cCI6MTY5Mjc2NjY2N30.Ti50YkeK7WDD_TK7nbchXFHivasWUSahLNWTdCFzbbGLSAJ5DHchAySCg0bhevbS",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/operations/findByTelefonoUsuario/7587256318",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"operations",
+						"findByTelefonoUsuario",
+						"7587256318"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiMTAzMTEzOTU1NCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2OTI3NjYwNjcsImV4cCI6MTY5Mjc2NjY2N30.Ti50YkeK7WDD_TK7nbchXFHivasWUSahLNWTdCFzbbGLSAJ5DHchAySCg0bhevbS",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/operations/findById?id=17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"operations",
+						"findById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "17"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiMTAzMTEzOTU1NCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2OTI3NjY3NDIsImV4cCI6MTY5Mjc2NzM0Mn0.-KPa-9WaI1HMCvJXGqiW-ZkNAtuC-OHwJn41gAdZArvHfCLDOK7rIgMj0CQY4CkI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/crud/get?identificacion=7847938266",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"crud",
+						"get"
+					],
+					"query": [
+						{
+							"key": "identificacion",
+							"value": "7847938266"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUsuariosController",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiMTAzMTEzOTU1NCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2OTI3NjY3NDIsImV4cCI6MTY5Mjc2NzM0Mn0.-KPa-9WaI1HMCvJXGqiW-ZkNAtuC-OHwJn41gAdZArvHfCLDOK7rIgMj0CQY4CkI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreUsuario\": \"MiNombre2\",\r\n    \"identificacionUsuario\": \"0975427886\",\r\n    \"telefonoUsuario\": \"1547689524\",\r\n    \"correoUsuario\": \"correo2@hotmail.com\",\r\n    \"password\": \"contrasena2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/crud/create?identificacion=7847938266",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"crud",
+						"create"
+					],
+					"query": [
+						{
+							"key": "identificacion",
+							"value": "7847938266"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiMTAzMTEzOTU1NCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2OTI3NjY3NDIsImV4cCI6MTY5Mjc2NzM0Mn0.-KPa-9WaI1HMCvJXGqiW-ZkNAtuC-OHwJn41gAdZArvHfCLDOK7rIgMj0CQY4CkI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreUsuario\": \"MiNombre2\",\r\n    \"identificacionUsuario\": \"0975427886\",\r\n    \"telefonoUsuario\": \"1547689525\",\r\n    \"correoUsuario\": \"correo2@hotmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/crud/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"crud",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiMTAzMTEzOTU1NCIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2OTI3NjY3NDIsImV4cCI6MTY5Mjc2NzM0Mn0.-KPa-9WaI1HMCvJXGqiW-ZkNAtuC-OHwJn41gAdZArvHfCLDOK7rIgMj0CQY4CkI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/crud/delete?identificacion=0975427886",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"crud",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "identificacion",
+							"value": "0975427886"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

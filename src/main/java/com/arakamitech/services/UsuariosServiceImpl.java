@@ -1,8 +1,5 @@
 package com.arakamitech.services;
 
-import java.util.Objects;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +15,6 @@ public class UsuariosServiceImpl implements IUsuariosService {
 
 	private final IRepositoryUsuarios iRepositoryUsuarios;
 
-	@Autowired
 	public UsuariosServiceImpl(IRepositoryUsuarios iRepositoryUsuarios) {
 		this.iRepositoryUsuarios = iRepositoryUsuarios;
 	}
@@ -26,10 +22,10 @@ public class UsuariosServiceImpl implements IUsuariosService {
 	@Override
 	public UsuariosEntity getUsuario(String identificacion) {
 		var usuarioEntity = iRepositoryUsuarios.findByIdentificacionUsuario(identificacion);
-		if (Objects.isNull(usuarioEntity)) {
+		if (usuarioEntity.isEmpty()) {
 			throw new NotFoundException("No se encontraron resultados");
 		}
-		return usuarioEntity;
+		return usuarioEntity.get();
 	}
 
 	@Override
@@ -49,10 +45,10 @@ public class UsuariosServiceImpl implements IUsuariosService {
 	@Override
 	public void deleteUsuario(String identificacion) {
 		var usuarioEntity = iRepositoryUsuarios.findByIdentificacionUsuario(identificacion);
-		if (Objects.isNull(usuarioEntity)) {
+		if (usuarioEntity.isEmpty()) {
 			throw new NotFoundException("No se encontraron resultados");
 		}
-		iRepositoryUsuarios.delete(usuarioEntity);
+		iRepositoryUsuarios.delete(usuarioEntity.get());
 	}
 
 }

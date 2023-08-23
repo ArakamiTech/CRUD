@@ -5,15 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+import lombok.Builder;
 import lombok.Data;
 
+@Builder
 @Data
 @Entity(name = "usuarios")
-@NamedQueries({
-		@NamedQuery(name = "UsuariosEntity.findByCorreoAndIdentificacionQuery", query = "SELECT u FROM usuarios u WHERE u.correoUsuario=:correo AND u.identificacionUsuario=:identificacion") })
+@NamedQuery(name = "UsuariosEntity.findByCorreoAndIdentificacionQuery", query = "SELECT u FROM usuarios u WHERE u.correoUsuario=:correo AND u.identificacionUsuario=:identificacion")
 public class UsuariosEntity {
 
 	public UsuariosEntity() {

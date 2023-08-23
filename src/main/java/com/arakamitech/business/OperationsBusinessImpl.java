@@ -3,23 +3,22 @@ package com.arakamitech.business;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.arakamitech.dtos.ResponseDto;
 import com.arakamitech.dtos.UsuariosDto;
 import com.arakamitech.entities.UsuariosEntity;
 import com.arakamitech.services.IOperationsService;
+import com.arakamitech.util.Util;
 
 @Service
 public class OperationsBusinessImpl implements IOperationsBusiness {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(OperationsBusinessImpl.class);
 
-	private IOperationsService iOperationsService;
-	private ModelMapper mapper;
+	private final IOperationsService iOperationsService;
+	private final ModelMapper mapper;
 
-	@Autowired
 	public OperationsBusinessImpl(IOperationsService iOperationsService, ModelMapper mapper) {
 		this.iOperationsService = iOperationsService;
 		this.mapper = mapper;
@@ -28,19 +27,22 @@ public class OperationsBusinessImpl implements IOperationsBusiness {
 	@Override
 	public ResponseDto findById(String id) {
 		var usuarioEntity = iOperationsService.findById(Long.parseLong(id));
-		return buildResponseEntity(usuarioEntity);
+		var usariosDto = mapper.map(usuarioEntity, UsuariosDto.class);
+		return Util.buildResponseDto(usariosDto);
 	}
 
 	@Override
 	public ResponseDto findByTelefonoUsuario(String telefono) {
 		var usuarioEntity = iOperationsService.findByTelefonoUsuario(telefono);
-		return buildResponseEntity(usuarioEntity);
+		var usariosDto = mapper.map(usuarioEntity, UsuariosDto.class);
+		return Util.buildResponseDto(usariosDto);
 	}
 
 	@Override
 	public ResponseDto findByCorreoUsuario(String correo) {
 		var usuarioEntity = iOperationsService.findByCorreoUsuario(correo);
-		return buildResponseEntity(usuarioEntity);
+		var usariosDto = mapper.map(usuarioEntity, UsuariosDto.class);
+		return Util.buildResponseDto(usariosDto);
 	}
 
 	@Override
@@ -62,11 +64,8 @@ public class OperationsBusinessImpl implements IOperationsBusiness {
 		default:
 			return ResponseDto.builder().mensaje("Operacion de header invalida").build();
 		}
-		return buildResponseEntity(usuarioEntity);
-	}
-
-	private ResponseDto buildResponseEntity(UsuariosEntity usuarioEntity) {
-		return ResponseDto.builder().usuario(mapper.map(usuarioEntity, UsuariosDto.class)).mensaje("OK").build();
+		var usariosDto = mapper.map(usuarioEntity, UsuariosDto.class);
+		return Util.buildResponseDto(usariosDto);
 	}
 
 }

@@ -1,5 +1,6 @@
 <h3>Usuarios</h3>
 Este proyecto realiza operaciones CRUD y de consultas generales con diferentes formas de generarlas (Spring boot, JPQL, NativeQuery)
+Adicional, tiene autorizacion y autenticacion mediante Bearer Token (Todas las operaciones necesitan Token, a excepcion del Login)
 
 <h3>Indicaciones</h3>
 Ejecuta el proyecto como Spring Boot App
