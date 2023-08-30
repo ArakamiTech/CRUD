@@ -13,9 +13,9 @@ import com.arakamitech.exceptions.UnhautorizedException;
 import com.arakamitech.repositories.IRepositoryUsuarios;
 
 @Service
-public class ISecurityBusinessImpl implements ISecurityBusiness {
+public class SecurityBusinessImpl implements ISecurityBusiness {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ISecurityBusinessImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SecurityBusinessImpl.class);
 
 	@Value("${jwt.secret}")
 	private String secret;
@@ -23,7 +23,7 @@ public class ISecurityBusinessImpl implements ISecurityBusiness {
 	private final IRepositoryUsuarios repository;
 	private final JWTAuthorizationFilter jwtAuthorizationFilter;
 
-	public ISecurityBusinessImpl(IRepositoryUsuarios repository, JWTAuthorizationFilter jwtAuthorizationFilter) {
+	public SecurityBusinessImpl(IRepositoryUsuarios repository, JWTAuthorizationFilter jwtAuthorizationFilter) {
 		super();
 		this.repository = repository;
 		this.jwtAuthorizationFilter = jwtAuthorizationFilter;
